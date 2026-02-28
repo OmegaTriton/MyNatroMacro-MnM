@@ -1,0 +1,17 @@
+﻿dy_Walk(2.75, LeftKey)
+dy_Walk(1.55, FwdKey)
+dy_Walk(13, RightKey)
+dy_Walk(3.5, RightKey)
+dy_Walk(1.5, FwdKey)
+loop 2 {
+    dy_Walk(5.5, LeftKey)
+    dy_Walk(1.5, BackKey)
+    dy_Walk(5.5, RightKey)
+    dy_Walk(1.5, BackKey)
+}
+dy_Walk(5.5, LeftKey)
+dy_Walk(1.5, FwdKey)
+dy_Walk(5.5, RightKey)
+dy_Walk(1.5, FwdKey)
+dy_Walk(2.75, LeftKey)
+dy_Walk(t, d) => (nm_Walk(t, d), Sleep(30))
