@@ -17685,6 +17685,7 @@ DisconnectCheck(testCheck := 0)
 				if GetRobloxHWND() {
 					ActivateRoblox()
 					nm_setStatus("Detected", "Roblox Open")
+					Send "#{Up}" ; maximize window
 					break
 				}
 				if (A_Index = 240) {
