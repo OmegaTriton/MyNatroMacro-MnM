@@ -127,6 +127,14 @@ OnMessage(0x5558, nm_AmuletPrompt)
 OnMessage(0x5559, nm_FindItem)
 OnMessage(0x5560, nm_copyDebugLog)
 OnMessage(0x0020, nm_WM_SETCURSOR)
+OnMessage(0x5001, forceEndGather, 255)
+
+forceEndGather(*) {
+	global state, forceEndGathering
+	forceEndGathering := 0
+	if state = "Gathering"
+		forceEndGathering := 1
+}
 
 ; set version identifier
 VersionID := "1.1.1"
@@ -16316,7 +16324,9 @@ nm_GoGather(){
 		, GameFrozenCounter
 		, BlackQuestCheck, BrownQuestCheck, BuckoQuestCheck, RileyQuestCheck, PolarQuestCheck
 		, BlackQuestComplete, BrownQuestComplete, BuckoQuestComplete, RileyQuestComplete, PolarQuestComplete
-
+		, forceEndGathering
+	forceEndGathering:=0
+	
 	;VICIOUS BEE
 	if nm_NightInterrupt()
 		return
@@ -16739,6 +16749,12 @@ nm_GoGather(){
 					interruptReason := "Mondo"
 					if (PMondoGuidComplete)
 						PMondoGuidComplete:=0
+					break
+				}
+				;forceEndGather RC command
+				if forceEndGathering =1 {
+					interruptReason := "Force End"
+					forceEndGathering := 0
 					break
 				}
 			}
