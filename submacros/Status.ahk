@@ -1138,6 +1138,9 @@ nm_command(command)
 		case "forceReport":
 			PostSubmacroMessage("StatMonitor", 0x5558)
 
+		case "forceEndGather":
+			PostSubmacroMessage("natro_macro", 0x5001)
+
 		case "stop","reload":
 		DetectHiddenWindows 1
 		if WinExist("natro_macro ahk_class AutoHotkey")
