@@ -659,7 +659,7 @@ Loop
 	(status_buffer.Length > 0) && nm_status(status_buffer[1])
 	(Mod(A_Index, 5) = 0) && discord.GetCommands(MainChannelID)
 	(command_buffer.Length > 0) && nm_command(command_buffer[1])
-	(Mod(A_Index, 10) = 0) && nm_honey()
+	(Mod(A_Index, 50) = 0) && nm_honey() ; switched 10 -> 50 to edit discord msg every 7 seconds to say within rate limits; 10 edits every 2 seconds
 	((DebugLogEnabled = 1) && (logsize > 8000000)) && nm_TrimLog(4194304) ; trim to 4MiB
 	Sleep 100
 }
