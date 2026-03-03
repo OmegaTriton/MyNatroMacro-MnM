@@ -90,9 +90,8 @@ GetYOffset(hwnd?, &fail?)
 ; Returns: 1 = successful; 0 = TargetError
 ActivateRoblox()
 {
-	try{
+	try
 		WinActivate "Roblox"
-	}
 	catch
 		return 0
 	else
